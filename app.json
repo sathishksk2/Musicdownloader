@@ -1,12 +1,12 @@
 {
     "name": "Music Downloader",
-    "description": "A Telegram bot to download high quality Songs.",
-    "repository": "https://github.com/Adithyan06/Musicdownloader/tree/main",
+    "description": "A Telegram bot to download high quality Songs.",   
     "logo": "https://telegra.ph/file/0725e7531e013332b0c9f.jpg",
     "keywords": [
         "Pyrogram",
-        "Musicbot",
-    ] 
+        "Musicbot"
+    ]
+    "repository": "https://github.com/Adithyan06/Musicdownloader", 
     "env": {
         "BOT_TOKEN": {
             "description": "You Telegram Bot Token from @BotFather",
