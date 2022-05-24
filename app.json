@@ -5,10 +5,8 @@
     "keywords": [
         "Pyrogram",
         "Musicbot"
-    ]
+    ],
     "repository": "https://github.com/Adithyan06/Musicdownloader", 
-    "website": "https://t.me/NacBots",
-    "success_url": "",
     "env": {
         "BOT_TOKEN": {
             "description": "You Telegram Bot Token from @BotFather",
