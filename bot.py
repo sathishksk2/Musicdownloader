@@ -18,4 +18,3 @@ if __name__ == "__main__" :
         plugins=plugins
     )
     bot.run()
-print("Bot Started!!")
