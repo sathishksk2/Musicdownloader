@@ -1,7 +1,6 @@
 {
     "name": "Music Downloader",
     "description": "A Telegram bot to download high quality Songs.",   
-    "logo": "https://telegra.ph/file/0725e7531e013332b0c9f.jpg",
     "keywords": [
         "Pyrogram",
         "Musicbot"
