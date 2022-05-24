@@ -49,12 +49,10 @@ async def startprivate(client, message):
 @Client.on_message(filters.command('help')  & filters.private)
 async def help(client, message):
        Help_buttons = InlineKeyboardMarkup([[InlineKeyboardButton('𝗖𝗹𝗼𝘀𝗲 ❌', callback_data="close")]])
-       await message.reply_chat_action("typing")
        await message.reply_text(text=Help_text, reply_markup=Help_buttons, quote=True)
 
 
 @Client.on_message(filters.command('about')  & filters.private)
 async def about(client, message):
        About_buttons = InlineKeyboardMarkup([[InlineKeyboardButton('𝗖𝗹𝗼𝘀𝗲 ❌', callback_data="close")]])
-       await message.reply_chat_action("typing")
        await message.reply_text(text=About_text, reply_markup=About_buttons, quote=True)
