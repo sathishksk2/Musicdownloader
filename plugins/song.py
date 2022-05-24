@@ -3,15 +3,23 @@ import ffmpeg
 import time
 import requests
 import yt_dlp
+import config
 from pyrogram import filters, Client
 from youtube_search import YoutubeSearch
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
-from plugins.google import get_text
-from config import ARQ_API_URL, ARQ_API_KEY
-
-# session = aiohttp.ClientSession()
-# arq = ARQ(ARQ_API_URL, ARQ_API_KEY, se
+def get_text(message: Message) -> [None, str]:
+    """Extract Text From Commands"""
+    text_to_return = message.text
+    if message.text is None:
+        return None
+    if " " in text_to_return:
+        try:
+            return message.text.split(None, 1)[1]
+        except IndexError:
+            return None
+    else:
+        return None
 
 @Client.on_message(filters.command(["s", "song", "music"]))
 async def song(client, message):
@@ -20,11 +28,7 @@ async def song(client, message):
     if not query:
         await m.edit("Give me a song name to download...\n`/s Believer`")
         return
-    if 'https://www.shazam.com/' in query:
-        await m.edit("Hey, give me a Song name or YouTube Link.😕")
-        return
     user_id = message.from_user.id
-    print(f"song:{query}.Name : {message.from_user.mention()}.UserId: {user_id}")
     chat_id = message.chat.id   
     ydl_opts = {
             "format": "bestaudio",
@@ -80,19 +84,19 @@ async def song(client, message):
 #        artist = str(info_dict["artist"])
 #        uploader = str(info_dict["uploader"])
         ironman = f'• **Tittle** : __{title}__\n• **Channel** : `{thor}`\n• **Link** : {link}\n• **Requested For** : `{query}`'
-        rep = f"🎧 𝗧𝗶𝘁𝘁𝗹𝗲 : [{title[:35]}]({link})\n⏳ 𝗗𝘂𝗿𝗮𝘁𝗶𝗼𝗻 : `{duration}`\n👀 𝗩𝗶𝗲𝘄𝘀 : `{views}`\n\n📮 **By** : [{message.from_user.first_name}](tg://user?id={message.from_user.id})\n📤 𝗕𝘆 : [Music Downloader 🎶](https://t.me/MusicDownloadv2bot)"
-        buttons = InlineKeyboardMarkup([[InlineKeyboardButton('sᴇᴀʀᴄʜ ɪɴʟɪɴᴇ', switch_inline_query_current_chat=f'yt ')]])
+        rep = f"🎧 𝗧𝗶𝘁𝘁𝗹𝗲 : [{title[:35]}]({link})\n⏳ 𝗗𝘂𝗿𝗮𝘁𝗶𝗼𝗻 : `{duration}`\n👀 𝗩𝗶𝗲𝘄𝘀 : `{views}`\n\n📮 **By** : [{message.from_user.first_name}](tg://user?id={message.from_user.id})"
+        buttons = InlineKeyboardMarkup([[InlineKeyboardButton('sᴇᴀʀᴄʜ ɪɴʟɪɴᴇ', switch_inline_query_current_chat=f'')]])
         secmul, dur, dur_arr = 1, 0, duration.split(':')
         for i in range(len(dur_arr)-1, -1, -1):
             dur += (int(dur_arr[i]) * secmul)
             secmul *= 60
-        await client.send_chat_action(chat_id, "upload_photo")
-        await message.reply_photo(thumbnail, caption=ironman, parse_mode='md', ttl_seconds=500)
-        await client.send_chat_action(chat_id, "upload_audio")
+#       await client.send_chat_action(chat_id, "upload_photo")
+#       await message.reply_photo(thumbnail, caption=ironman, parse_mode='md', ttl_seconds=500)
+#       await client.send_chat_action(chat_id, "upload_audio")
         await message.reply_audio(audio=audio_file, caption=rep, parse_mode='md',quote=True, title=title, duration=dur, performer=str(info_dict["uploader"]), reply_markup=buttons, thumb=thumb_name)
         await m.delete()
     except Exception as e:
-        await m.edit(f'😔**Failed**\n\n__Report this Error to my [Master](https://t.me/Peterparker6)\nOr try__ : `/spotify {query}`')
+        await m.edit(f'😔**Failed**\n\n__Report this Error to my [Master](https://t.me/{config.OWNER})\nOr try__ : `/spotify {query}`')
         print(e)
     try:
         os.remove(audio_file)
