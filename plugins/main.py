@@ -55,7 +55,7 @@ async def startprivate(client, message):
     joinButton = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("Developer 🤠", url='https://telegram.dog/{OWNER}'),
+                InlineKeyboardButton("Developer 🤠", url=f'https://telegram.dog/{OWNER}'),
                 InlineKeyboardButton("Source 😪", callback_data="source")
             ],
             [
