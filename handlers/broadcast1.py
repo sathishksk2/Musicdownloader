@@ -42,7 +42,7 @@ async def send_msg(user_id, message):
 
 
 async def broadcast(m, db):
-    all_users = await db.get_all_notif_user()
+    all_users = await db.users_count()
     broadcast_msg = m.reply_to_message
     while True:
         broadcast_id = "".join([random.choice(string.ascii_letters) for i in range(3)])
