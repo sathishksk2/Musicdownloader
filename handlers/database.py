@@ -9,4 +9,8 @@ class Database:
         self.db = self._client[database_name]
         self.col = self.db.users
 
+    async def users_count(self):
+       users = self.col.find({"users": True})
+       return users
+
     
