@@ -24,7 +24,7 @@
         },
         "START_MSG": {
             "description": "Start Message",
-            "value": "<b>Hello {} 👋,\nI am a Music Downloader 😎\nI can Download songs from Spotify,JioSaavn, YouTube etc..\nCheck /help for more info</b>"
+            "value": "<b>Hello {} 👋,\nI am a Music Downloader 😎\nI can Download songs from Spotify,JioSaavn, YouTube etc..\nCheck /help for more info</b>",
             "required": false
         },
         "BROADCAST_AS_COPY": {
