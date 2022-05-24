@@ -1,6 +1,6 @@
 import os
-from program import Client, filters, StopPropagation
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
+from pyrogram import Client, filters
+from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup, Message
 import config
 
 # -----------------------------------------------------------------------------------
