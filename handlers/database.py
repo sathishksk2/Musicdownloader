@@ -27,6 +27,4 @@ class Database:
     async def total_users_count(self):
        count = await self.col.count_documents({})
        return count
-
-
     
