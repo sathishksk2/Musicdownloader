@@ -1,7 +1,7 @@
 from pyrogram import Client
 from pyrogram import StopPropagation, filters
 import config
-from handlers.broadcast import broadcast
+from handlers.broadcast1 import broadcast
 from handlers.database import Database
 
 AUTH_USERS = config.AUTH_USERS
