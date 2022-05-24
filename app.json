@@ -25,8 +25,8 @@
         },
         "START_MSG": {
             "description": "Start Message",
-            "value": ""
-            "required": true
+            "value": "<b>Hello {} 👋,\nI am a Music Downloader 😎\nI can Download songs from Spotify,JioSaavn, YouTube etc..\nCheck /help for more info</b>"
+            "required": false
         },
         "BROADCAST_AS_COPY": {
             "description": "Value should be True or False. Broadcast with Forward Tag or as Copy.(Without Forward Tag)",
@@ -44,7 +44,7 @@
             "required": false
         },
         "AUTH_USERS": {
-            "description": "Create a list of User Ids to use this bot(ADMINS). Seperate by space",
+            "description": "Create a list of User Ids to use this bot(ADMINS). Seperate by space.Get it from @TGIdsBot",
             "value": "",
             "required": true
         },
