@@ -3,6 +3,8 @@ from pyrogram import Client, filters
 from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup, Message
 import config
 
+OWNER = config.OWNER
+
 # -----------------------------------------------------------------------------------
 
 Help_text = """<u>🌟**Available Commands**</u>
@@ -53,7 +55,7 @@ async def startprivate(client, message):
     joinButton = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("Developer 🤠", url="https://telegram.dog/{config.OWNER}"),
+                InlineKeyboardButton("Developer 🤠", url='https://telegram.dog/{OWNER}'),
                 InlineKeyboardButton("Source 😪", callback_data="source")
             ],
             [
