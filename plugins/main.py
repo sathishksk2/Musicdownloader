@@ -20,6 +20,24 @@ Help_text = """<u>🌟**Available Commands**</u>
 
 # ------------------------------------------------------------------------------------
 
+
+About_text = """--<u>**About Me 😎**</u>--
+🍁 ɴᴀᴍᴇ : `Music Downloader`
+
+🧑‍💻 ᴅᴇᴠᴇʟᴏᴘᴇʀ : [Peter Parker](https://t.me/Peterparker6)
+
+📝 ʟᴀɴɢᴜᴀɢᴇ : `Python3`
+
+💎 sᴇʀᴠᴇʀ : [Heroku](https://heroku.com/)
+
+💮 ʟɪʙʀᴀʀʏ : [Pyrogram](https://docs.pyrogram.org/)
+
+💨 ʙᴜɪʟᴅ sᴛᴀᴛs : `V1.0 [Stable]`
+
+⭕ sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ : [🤥Click here](https://github.com)"""
+
+# ------------------------------------------------------------------------------------
+
 @Client.on_callback_query()
 async def cb_handler(bot, update):
     if update.data == "close":
