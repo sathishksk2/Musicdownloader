@@ -63,7 +63,7 @@ async def song(client, message):
             duration = results[0]["duration"]
             views = results[0]["views"]
             thor = results[0]["channel"] 
-            moon = results[0]["id]    
+            moon = results[0]["id"]    
             venom = f"https://img.youtube.com/vi/{moon}/hqdefault.jpg"  
 
 #           thumb_name = f'thumb{message.id}.jpg'
