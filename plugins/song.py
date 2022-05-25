@@ -29,7 +29,8 @@ async def song(client, message):
         await m.edit("Give me a song name to download...\n`/s Believer`")
         return
     user_id = message.from_user.id
-    chat_id = message.chat.id   
+    chat_id = message.chat.id  
+    msg_id = message.message_id
     ydl_opts = {
             "format": "bestaudio",
             "addmetadata": True,
