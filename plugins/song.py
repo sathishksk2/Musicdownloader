@@ -65,6 +65,7 @@ async def song(client, message):
             thor = results[0]["channel"] 
             moon = results[0]["id"]    
             venom = f"https://img.youtube.com/vi/{moon}/hqdefault.jpg"  
+            moonknight = wget.download(venom)
 
 #           thumb_name = f'thumb{message.id}.jpg'
 #           thumb = requests.get(thumbnail, allow_redirects=True)
@@ -74,8 +75,6 @@ async def song(client, message):
             print(e)
             await m.edit('**Found Nothing ❌\nChange the Spelling and try**')
             return
-            await asyncio.sleep(0.6)
-            moonknight = wget.download(venom)
     except Exception as e:
         await m.edit("**Sorry**\n\n𝖯𝗅𝖾𝖺𝗌𝖾 𝖳𝗋𝗒 𝖠𝗀𝖺𝗂𝗇 𝖮𝗋 𝖲𝖾𝖺𝗋𝖼𝗁 𝖺𝗍 Google.com 𝖥𝗈𝗋 𝖢𝗈𝗋𝗋𝖾𝖼𝗍 𝖲𝗉𝖾𝗅𝗅𝗂𝗇𝗀 𝗈𝖿 𝗍𝗁𝖾 **Song**.\n\nEg.`/s Believer`")
         print(str(e))
