@@ -1,6 +1,8 @@
 import os
 import ffmpeg
 import time
+import asyncio
+import wget
 import requests
 import yt_dlp
 import config
@@ -60,15 +62,20 @@ async def song(client, message):
             thumbnail = results[0]["thumbnails"][0]
             duration = results[0]["duration"]
             views = results[0]["views"]
-            thor = results[0]["channel"]        
-            thumb_name = f'thumb{message.id}.jpg'
-            thumb = requests.get(thumbnail, allow_redirects=True)
-            open(thumb_name, 'wb').write(thumb.content)
+            thor = results[0]["channel"] 
+            moon = results[0]["id]    
+            venom = f"https://img.youtube.com/vi/{moon}/hqdefault.jpg"  
+
+#           thumb_name = f'thumb{message.id}.jpg'
+#           thumb = requests.get(thumbnail, allow_redirects=True)
+#           open(thumb_name, 'wb').write(thumb.content)
 
         except Exception as e:
             print(e)
             await m.edit('**Found Nothing ❌\nChange the Spelling and try**')
             return
+            await asyncio.sleep(0.6)
+            moonknight = wget.download(venom)
     except Exception as e:
         await m.edit("**Sorry**\n\n𝖯𝗅𝖾𝖺𝗌𝖾 𝖳𝗋𝗒 𝖠𝗀𝖺𝗂𝗇 𝖮𝗋 𝖲𝖾𝖺𝗋𝖼𝗁 𝖺𝗍 Google.com 𝖥𝗈𝗋 𝖢𝗈𝗋𝗋𝖾𝖼𝗍 𝖲𝗉𝖾𝗅𝗅𝗂𝗇𝗀 𝗈𝖿 𝗍𝗁𝖾 **Song**.\n\nEg.`/s Believer`")
         print(str(e))
@@ -91,7 +98,7 @@ async def song(client, message):
 #       await client.send_chat_action(chat_id, "upload_photo")
 #       await message.reply_photo(thumbnail, caption=ironman, parse_mode='md', ttl_seconds=500)
 #       await client.send_chat_action(chat_id, "upload_audio")
-        await message.reply_audio(audio=audio_file, caption=reply, parse_mode='md', quote=True, title=title, duration=dur, performer=str(info_dict["uploader"]), reply_markup=buttons, thumb=thumb_name)
+        await message.reply_audio(audio=audio_file, caption=reply, parse_mode='md', quote=True, title=title, duration=dur, performer=str(info_dict["uploader"]), reply_markup=buttons, thumb=moonknight)
         await m.delete()
     except Exception as e:
         await m.edit(f'😔**Failed**\n\n__Report this Error to my [Master](https://t.me/{config.OWNER})\nOr try__ : `/spotify {query}`')
