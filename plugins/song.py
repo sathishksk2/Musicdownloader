@@ -61,7 +61,7 @@ async def song(client, message):
             duration = results[0]["duration"]
             views = results[0]["views"]
             thor = results[0]["channel"]        
-            thumb_name = f'thumb{message.message.id}.jpg'
+            thumb_name = f'thumb{message.id}.jpg'
             thumb = requests.get(thumbnail, allow_redirects=True)
             open(thumb_name, 'wb').write(thumb.content)
 
