@@ -66,11 +66,6 @@ async def song(client, message):
             moon = results[0]["id"]    
             venom = f"https://img.youtube.com/vi/{moon}/hqdefault.jpg"  
             moonknight = wget.download(venom)
-
-#           thumb_name = f'thumb{message.id}.jpg'
-#           thumb = requests.get(thumbnail, allow_redirects=True)
-#           open(thumb_name, 'wb').write(thumb.content)
-
         except Exception as e:
             print(e)
             await m.edit('**Found Nothing ❌\nChange the Spelling and try**')
@@ -97,7 +92,7 @@ async def song(client, message):
 #       await client.send_chat_action(chat_id, "upload_photo")
 #       await message.reply_photo(thumbnail, caption=ironman, parse_mode='md', ttl_seconds=500)
 #       await client.send_chat_action(chat_id, "upload_audio")
-        await message.reply_audio(audio=audio_file, caption=reply, parse_mode='md', quote=True, title=title, duration=dur, performer=str(info_dict["uploader"]), reply_markup=buttons, thumb=moonknight)
+        await message.reply_audio(audio=audio_file, caption=reply, parse_mode='md', quote=True, title=title, duration=dur, performer=str(info_dict["uploader"]), reply_markup=buttons, thumb=moonknight or None)
         await m.delete()
     except Exception as e:
         await m.edit(f'😔**Failed**\n\n__Report this Error to my [Master](https://t.me/{config.OWNER})\nOr try__ : `/spotify {query}`')
