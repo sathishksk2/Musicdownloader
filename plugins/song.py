@@ -31,7 +31,7 @@ async def song(client, message):
         await m.edit("Give me a song name to download...\n`/s Believer`")
         return
     ydl_opts = {
-            "format": "bestaudio/b",
+            "format": "bestaudio",
             "addmetadata": True,
             "key": "FFmpegMetadata",
             "prefer_ffmpeg": True,
@@ -92,7 +92,7 @@ async def song(client, message):
 #       await client.send_chat_action(chat_id, "upload_photo")
 #       await message.reply_photo(thumbnail, caption=ironman, parse_mode='md', ttl_seconds=500)
 #       await client.send_chat_action(chat_id, "upload_audio")
-        await message.reply_audio(audio=audio_file, caption=reply, parse_mode='md', quote=True, title=title, duration=dur, performer=str(info_dict["uploader"]), reply_markup=buttons)
+        await message.reply_audio(audio=audio_file, caption=reply, parse_mode='md', quote=True, title=title, duration=dur, performer=str(info_dict["uploader"]), reply_markup=buttons, thumb=moonknight)
         await m.delete()
     except Exception as e:
         await m.edit(f'😔**Failed**\n\n__Report this Error to my [Master](https://t.me/{config.OWNER})\nOr try__ : `/spotify {query}`')
