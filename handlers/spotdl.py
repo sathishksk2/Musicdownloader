@@ -22,7 +22,8 @@ async def send_songs_from_directory(directory_path: str, client, message: Messag
         try:
             await client.send_chat_action(chat_id, "upload_audio")
             await client.send_audio(chat_id,caption=caption,audio=open(f'{directory_path}/{file}', 'rb'))
-        except Exception:
-            await client.send_message(chat_id, text=f"Failed to send song {file}")
+        except Exception as brr:
+            await client.send_message(chat_id, text=f"Failed to send song - **{file}**")
+            print(brr)
 
     subprocess.run(['rm', '-r', directory_path])
