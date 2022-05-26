@@ -40,7 +40,7 @@ async def song(client, message):
             "postprocessors": [
                 {
                     "key": "FFmpegExtractAudio",
-                    "preferredcodec": "mp3",
+                    "preferredcodec": "m4a",
                     "preferredquality": "320",
                 }
             ],
