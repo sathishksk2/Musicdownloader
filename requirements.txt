@@ -5,7 +5,7 @@ Pyrogram
 TgCrypto
 aiofiles
 requests
-yt-dlp==2022.04.08
+yt-dlp
 ffmpeg-python
 youtube_search
 ytmusicapi
