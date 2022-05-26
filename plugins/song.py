@@ -8,7 +8,8 @@ import yt_dlp
 import config
 from pyrogram import filters, Client
 from youtube_search import YoutubeSearch
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+from pyrogram.types import Message
 
 def get_text(message: Message) -> [None, str]:
     """Extract Text From Commands"""
@@ -24,7 +25,7 @@ def get_text(message: Message) -> [None, str]:
         return None
 
 @Client.on_message(filters.command(["s", "song", "music"]))
-async def song(client, message):
+async def song(client, message: Message):
     m = await message.reply('🔎 Searching for your Song...')
     query = get_text(message)
     if not query:
