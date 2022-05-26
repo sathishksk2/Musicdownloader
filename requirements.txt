@@ -11,7 +11,6 @@ ytmusicapi
 spotdl
 rapidfuzz
 wget
-python-telegram-bot
 pillow
 hachoir
 dnspython
