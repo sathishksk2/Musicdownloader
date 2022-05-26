@@ -31,7 +31,7 @@ async def song(client, message):
         await m.edit("Give me a song name to download...\n`/s Believer`")
         return
     ydl_opts = {
-            "format": "bestaudio",
+            "format": "bestaudio/b",
             "addmetadata": True,
             "key": "FFmpegMetadata",
             "prefer_ffmpeg": True,
@@ -40,7 +40,7 @@ async def song(client, message):
             "postprocessors": [
                 {
                     "key": "FFmpegExtractAudio",
-                    "preferredcodec": "m4a",
+                    "preferredcodec": "mp3",
                     "preferredquality": "320",
                 }
             ],
